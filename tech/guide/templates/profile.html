@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
     <title>Profile</title>
+     
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -39,14 +40,29 @@
       <div class="container">
         
           <h3>Profile</h3>
-          {% for x in y  %}
-          <p>{{em}}</p>
-          {% endfor %}
+          
+           <div class="imgcontainer">
+                    <img src="{% static 'avatar_img2.png' %}" alt="Avatar" class="avatar">
+                </div>
       <br>
       <br>
       <br>
           <a href="http://127.0.0.1:8000/login">Log Out</a>
       </div>
+      <style>
+            
+            
+           
+            .imgcontainer {
+              
+                margin: 24px 0 12px 0;
+            }
+              
+            img.avatar {
+                width: 10%;
+                border-radius: 50%;
+            }  
+        </style>
 
 </body>
 </html>

@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.techguide.com</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <script src= "{% static 'bootstrap.bundle.js'"></script>
+    <script src="https://kit.fontawesome.com/ce5c9469d0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/feed/">TechGuide</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="http://127.0.0.1:8000/feed/">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/aboutus/">ABOUT US</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "href = "http://127.0.0.1:8000/add/">ADD QUESTION</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="http://127.0.0.1:8000/profile/">PROFILE</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    {% for x in result %}
+    <div class="row">
+        <div class="card mb-3">
+            <div class="card-body">
+                <p>{{x}}</p>
+                <div class="container">
+                  <div class="voting">
+                    <button id="likebtn">
+                        <i class="fa fa-thumbs-up"></i>
+                    </button>
+                    <input type="number" id="input1" value="0" name="">
+                    <button id="dislikebtn">
+                        <i class="fa fa-thumbs-down"></i>
+                    </button>
+                    <input type="number" id="input2" value="0" name="">
+                  </div>
+                  <style>
+                    input{
+                          pointer-events: none;
+                          }
+                                  button{
+                                      cursor: pointer;
+                                  }
+                  </style>
+                  <script type="text/javascript">
+                    let likebtn = document.querySelector('#likebtn');
+                    let dislikebtn = document.querySelector('#dislikebtn');
+                    let input1 = document.querySelector('#input1');
+                    let input2 = document.querySelector('#input2');
+          
+                    likebtn.addEventListener('click',()=>{
+                        input1.value = parseInt(input1.value) + 1;
+                        
+                    })
+                    dislikebtn.addEventListener('click',()=>{
+                        input2.value = parseInt(input2.value) + 1;
+                        
+                    })
+                </script>
+                </div>
+                <div class="container">
+                  <textarea id="title" type="text "rows="3" cols="100" onkeyup="Allow()" placeholder="write a comment......"></textarea>
+                  <br>
+                  <button type="submit" value="Post" onclick="insert()">Post</button>
+                  </div>
+                  <div id="display"></div>
+                  <script type="text/javascript">
+                  var titles = [];
+                  var titleInput = document.getElementById("title");
+                  var messageBox = document.getElementById("display");
+                  function Allow()
+                  {
+                  if (!user.title.value.match(/[a-zA-Z]$/) && user.title.value !="")
+                  {
+                  user.title.value="";
+                  alert("Please Enter only alphabets");
+                  }
+                  window.location.reload()
+                  }
+                  function insert () {
+                  titles.push(titleInput.value);
+                  clearAndShow();
+                  }
+                  function clearAndShow ()
+                  {
+                  titleInput.value = "";
+                  messageBox.innerHTML = "";
+                  messageBox.innerHTML += " " + titles.join("<br/> ") + "<br/>";
+                  }
+                  </script>
+                  
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>   
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.techguide.com</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container">
+    <a class="navbar-brand" href="#">TechGuide</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="http://127.0.0.1:8000/feed/">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/aboutus/">ABOUT US</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "href = "http://127.0.0.1:8000/add/">ADD QUESTION</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href = "http://127.0.0.1:8000/profile/">PROFILE</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+  <div class="container" align= "center" >
+      <form action="" method="post">
+          {% csrf_token %}
+          <h4>
+          Enter your Question here :</h4>
+          <textarea name="question" class="question" cols="50" rows="20" placeholder="Start your with What Where How Etc" required></textarea><br><br>
+          <button type="submit" class="button1" value="Submit">Post</button>
+          
+      </form>
+  </div>
+</body>
+</html>
